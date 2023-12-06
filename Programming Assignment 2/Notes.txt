@@ -1,0 +1,32 @@
+Notes for creating TCP server client implementation
+
+Written by: Brent Son 827108705
+
+--------------------------------------------------------------------
+
+Format for creating a socket:
+int sockid = socket(family, type, protocol);
+
+family: AF_INET or PF_INET (Interchangable)
+type: SOCK_STREAM (reliable, 2-way, connection-based)
+protocol: 0 (default setting)
+
+--------------------------------------------------------------------
+
+Close a socket:
+int status = close(sockid);
+
+returns 0 is successful, -1 if error
+
+---------------------------------------------------------------------
+
+Assigning socket address
+
+struct sockaddr_in{
+	unsigned short sin_family;	Internet protocol(i.e. AF_INET)
+	unsigned short sin_port;	Address port (16 bits)
+	struct in_addr sin_addr;	Internet address (32 bits)
+}
+
+---------------------------------------------------------------------
+
